@@ -23,7 +23,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 
 	file, header, err := r.FormFile("myFile")
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
 	defer file.Close()
